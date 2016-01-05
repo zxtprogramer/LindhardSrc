@@ -24,7 +24,15 @@ class ELoss:
         chi2=e_g*e_g/PI/hbar_g/vf
         chi=math.sqrt(chi2)
         y=math.sqrt(3)/chi*(v/vf)**2
-        return self.lfun.calL(y,chi2,1e3)*4*PI*Zp*Zp*e_g**4/me_g/v/v*n
+        return self.lfun.calL(y,chi2,1e2)*4*PI*Zp*Zp*e_g**4/me_g/v/v*n
+
+    def calLFun(self, Zp, v, n):
+        kf=math.pow(3*PI*PI*n,1.0/3.0)
+        vf=hbar_g*kf/me_g
+        chi2=e_g*e_g/PI/hbar_g/vf
+        chi=math.sqrt(chi2)
+        y=math.sqrt(3)/chi*(v/vf)**2
+        return self.lfun.calL(y,chi2,1e2)
 
     def calLDA_SP(self, Zp, v, N):
         R0=math.pow(3.0/4.0/PI/N, 1.0/3.0)
